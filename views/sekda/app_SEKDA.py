@@ -65,10 +65,6 @@ def create_pie_chart(miss_data, corr_data, a, b):
 
 
 def main():
-    #file_path = "https://univindonesia-my.sharepoint.com/personal/annisa_zahra01_office_ui_ac_id/_layouts/15/download.aspx?share=ES0AUKl8jblBrp7BkbpUitQBrA3RE96Yg6ItD4msu3HXfg"
-    # file_path = "https://drive.google.com/uc?export=download&id=1lcIteSQTdQ5D-2HUTn-UbnhxWlc1TF80"
-    # response = requests.get(file_path)
-    # data = response.json()
     google_drive_id = "1lcIteSQTdQ5D-2HUTn-UbnhxWlc1TF80"
     file_path = f"https://drive.google.com/uc?export=download&id={google_drive_id}"
     #file_path = "https://drive.google.com/uc?export=download&id=1lcIteSQTdQ5D-2HUTn-UbnhxWlc1TF80"
@@ -82,7 +78,8 @@ def main():
     # df = pd.DataFrame(json_data)
     # csv = df.to_csv(index=False)
 
-    file_path_csv = "https://drive.google.com/uc?export=download&id=1e-WYFymKuogUST0DDcP9A8Go_gCNB0Bz"
+    google_drive_id_csv = "1e-WYFymKuogUST0DDcP9A8Go_gCNB0Bz"
+    file_path_csv = f"https://drive.google.com/uc?export=download&id={google_drive_id_csv}"
     df = pd.read_csv(file_path_csv)
     csv = df.to_csv(index=False)
 
