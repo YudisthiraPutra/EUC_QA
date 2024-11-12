@@ -150,7 +150,7 @@ def main():
     summary_data = data['df_summary']
     ringkasan_data = data['ringkasan_data']
     ringkasan_df = pd.DataFrame(ringkasan_data)
-    periode_publikasi = data['periode'].values[0]
+    periode_publikasi = data['periode']
 
     def calculate_mismatch_ratio(error_count, total_count):
         # Avoid division by zero
