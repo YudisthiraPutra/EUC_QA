@@ -65,9 +65,8 @@ def create_pie_chart(miss_data, corr_data, a, b):
 
 
 def main():
-    google_drive_id = "1lcIteSQTdQ5D-2HUTn-UbnhxWlc1TF80"
+    google_drive_id = "12kyOY0DsR_qfXjialWalUwQdRMrUzSX_"
     file_path = f"https://drive.google.com/uc?export=download&id={google_drive_id}"
-    #file_path = "https://drive.google.com/uc?export=download&id=1lcIteSQTdQ5D-2HUTn-UbnhxWlc1TF80"
     response = requests.get(file_path)
     data = response.json()
     
@@ -78,7 +77,7 @@ def main():
     # df = pd.DataFrame(json_data)
     # csv = df.to_csv(index=False)
 
-    google_drive_id_csv = "1e-WYFymKuogUST0DDcP9A8Go_gCNB0Bz"
+    google_drive_id_csv = "1Mw3zpR2aWQQbZxaDgFTX6241TIX6y2YU"
     file_path_csv = f"https://drive.google.com/uc?export=download&id={google_drive_id_csv}"
     df = pd.read_csv(file_path_csv)
     csv = df.to_csv(index=False)
