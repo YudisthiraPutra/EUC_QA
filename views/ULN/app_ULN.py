@@ -158,6 +158,9 @@ def main():
         else:
             return ['background-color: #83CBEB; color: black'] * len(row)  # Yellow background for other rows
 
+    def gray_column(cell):
+        return 'background-color: #D3D3D3; color: black'
+
     # Function to display the DataFrame
     def display_dataframe(input_df):
         st.dataframe(input_df.style.set_properties(**{'text-align': 'center'}).set_table_styles(
@@ -231,12 +234,21 @@ def main():
             - 🟩 : Komponen SEKI
             - 🟥 : Selisih
             """)
-            st.dataframe(df_summary.style.apply(lambda row: highlight_rows(row, df_summary),axis=1)
-            .set_properties(**{'text-align': 'center'})  # Set text alignment to center
-            .set_table_styles([  # Apply styling to the header
-            {'selector': 'th', 'props': [('text-align', 'center'), ('background-color', '#E8F6F3')]}])
-            .format(precision=2)  # Format numerical values with two decimal places
+            
+            # Apply styling with highlight_rows first, then additional settings
+            styled_df_summary = (
+                df_summary.style
+                .apply(lambda row: highlight_rows(row, df_summary), axis=1)  # Apply row-based highlights
+                .set_properties(**{'text-align': 'center'})  # Center-align text
+                .set_table_styles([  # Apply header styling
+                    {'selector': 'th', 'props': [('text-align', 'center'), ('background-color', '#E8F6F3')]}
+                ])
+                .format(precision=2)  # Format numerical values to two decimal places
             )
+            
+            # Display the styled DataFrame in Streamlit
+            st.dataframe(styled_df_summary)
+
 
 # Example usage of the main function
 if __name__ == "__main__":
