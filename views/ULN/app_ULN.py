@@ -213,7 +213,7 @@ def main():
             - 🟩 : Komponen SEKI
             - 🟥 : Selisih
             """)
-            st.dataframe(df_summary.style.apply(lambda row: highlight_rows(row, df_clean),axis=1)
+            st.dataframe(df_summary.style.apply(lambda row: highlight_rows(row, df_summary),axis=1)
             .set_properties(**{'text-align': 'center'})  # Set text alignment to center
             .set_table_styles([  # Apply styling to the header
             {'selector': 'th', 'props': [('text-align', 'center'), ('background-color', '#E8F6F3')]}])
