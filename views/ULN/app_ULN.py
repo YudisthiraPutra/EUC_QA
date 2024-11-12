@@ -147,7 +147,7 @@ def main():
         ).format(precision=2))
 
     clean_data = data['df_clean']
-    summary_data = data['vertikal_data_summary']
+    summary_data = data['df_summary']
     ringkasan_data = data['ringkasan_data']
     ringkasan_df = pd.DataFrame(ringkasan_data)
     periode_publikasi = data['periode'].values[0]
