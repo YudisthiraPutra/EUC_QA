@@ -195,12 +195,12 @@ def main():
             file_name='Data Rekap Uji Konsistensi.csv',
             mime='text/csv',use_container_width=True
         )
-
-    df_clean = pd.DataFrame(clean_data)
-    if df_clean is not None and not df_clean.empty and not (len(df_clean.columns) == 2 and 'Keterangan' in df_clean.columns):
-        df_summary = pd.DataFrame(summary_data)
+        
+    df_summary = pd.DataFrame(summary_data)
+    if df_summary is not None and not df_summary.empty and not (len(df_summary.columns) == 2 and 'Keterangan' in df_summary.columns):
+        df_clean = pd.DataFrame(clean_data)
         st.markdown(divider_style, unsafe_allow_html=True)
-        display_dataframe(df_summary)
+        display_dataframe(df_clean)
 
         st.markdown('**Keterangan**')
         st.text('✓: Data sudah konsisten pada periode tersebut')
@@ -208,11 +208,12 @@ def main():
         with st.expander("Lihat Detail"):
             st.write("""
             **Penjelasan Warna:**
-            - 🟩 : Aggregat
-            - 🟨 : Calculated
+            - 🟦 : Komponen SDDS:External Debt 
+            - 🟪 : Komponen SULNI
+            - 🟩 : Komponen SEKI
             - 🟥 : Selisih
             """)
-            st.dataframe(df_clean.style.apply(lambda row: highlight_rows(row, df_clean),axis=1)
+            st.dataframe(df_summary.style.apply(lambda row: highlight_rows(row, df_clean),axis=1)
             .set_properties(**{'text-align': 'center'})  # Set text alignment to center
             .set_table_styles([  # Apply styling to the header
             {'selector': 'th', 'props': [('text-align', 'center'), ('background-color', '#E8F6F3')]}])
