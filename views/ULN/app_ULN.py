@@ -143,7 +143,7 @@ def main():
     def highlight_rows(row, df):
         
         # Apply green to the first row
-        if row['Keterangan'] == 'SULNI.':
+        if 'SULNI.' in row['Keterangan']:
             return ['background-color: #B381D9; color: black'] * len(row)  # Red background
             
         # Apply red if 'Keterangan' is 'Selisih'
@@ -151,7 +151,7 @@ def main():
             return ['background-color: #F1948A; color: black'] * len(row)  # Red background
 
         # Apply green to the row after a 'Selisih' row
-        elif row['Keterangan'] == 'SEKI.':
+        elif 'SEKI.' in row['Keterangan']:
             return ['background-color: #A9DFBF; color: black'] * len(row)  # Green background
 
         # Apply yellow for all other rows
