@@ -183,7 +183,7 @@ def main():
             unsafe_allow_html=True)
         create_pie_chart(total_selisih, total_benar, "Konsisten", "Tidak Konsisten")
         st.markdown(
-            f"<p style='text-align: center;'><span style='font-weight: bold; text-decoration: underline;'>{mismatch_ratio_ver:.2f}%</span> data tidak konsisten.</p>",
+            f"<p style='text-align: center;'><span style='font-weight: bold; text-decoration: underline;'>{mismatch_ratio:.2f}%</span> data tidak konsisten.</p>",
             unsafe_allow_html=True)
     
     
