@@ -123,22 +123,40 @@ def main():
         'background-color': '#E8F6F3'
     }
 
-    def highlight_rows(row, df):
-        # Apply green to the first row
-        if row.name == 0:
-            return ['background-color: #A9DFBF; color: black'] * len(row)  # Green background for the first row
+    # def highlight_rows(row, df):
+    #     # Apply green to the first row
+    #     if row.name == 0:
+    #         return ['background-color: #A9DFBF; color: black'] * len(row)  # Green background for the first row
 
+    #     # Apply red if 'Keterangan' is 'Selisih'
+    #     elif row['Keterangan'] == 'Selisih':
+    #         return ['background-color: #F1948A; color: black'] * len(row)  # Red background
+
+    #     # Apply green to the row after a 'Selisih' row
+    #     elif row.name > 0 and df.iloc[row.name - 1]['Keterangan'] == 'Selisih':
+    #         return ['background-color: #A9DFBF; color: black'] * len(row)  # Green background
+
+    #     # Apply yellow for all other rows
+    #     else:
+    #         return ['background-color: #F9E79F; color: black'] * len(row)  # Yellow background for other rows
+
+    def highlight_rows(row, df):
+        
+        # Apply green to the first row
+        if row['Keterangan'] == 'SULNI.':
+            return ['background-color: #B381D9; color: black'] * len(row)  # Red background
+            
         # Apply red if 'Keterangan' is 'Selisih'
         elif row['Keterangan'] == 'Selisih':
             return ['background-color: #F1948A; color: black'] * len(row)  # Red background
 
         # Apply green to the row after a 'Selisih' row
-        elif row.name > 0 and df.iloc[row.name - 1]['Keterangan'] == 'Selisih':
+        elif row['Keterangan'] == 'SEKI.':
             return ['background-color: #A9DFBF; color: black'] * len(row)  # Green background
 
         # Apply yellow for all other rows
         else:
-            return ['background-color: #F9E79F; color: black'] * len(row)  # Yellow background for other rows
+            return ['background-color: #83CBEB; color: black'] * len(row)  # Yellow background for other rows
 
     # Function to display the DataFrame
     def display_dataframe(input_df):
