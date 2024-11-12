@@ -334,6 +334,5 @@ def main():
                         )
 
 # Example usage of the main function
-list_tahun = []  # Define list_tahun as needed
 if __name__ == "__main__":
     main()
